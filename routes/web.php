@@ -30,3 +30,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/teams', function() {
     return view('searchteam');
 })->name('searchTeam');
 Route::middleware(['auth:sanctum', 'verified'])->get('/teams/join/{id}', 'App\Http\Controllers\ChatController@JoinTeam')->name('joinTeam');
+Route::middleware(['auth:sanctum', 'verified'])->get('/viral', function () {return view('diagnostics.viral');})->name('viral');
