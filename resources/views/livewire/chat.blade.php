@@ -2,7 +2,7 @@
     <nav class="bg-gray-100 border-4 border-indigo-200 border-x-indigo-500 flex flex-col py-2 px-4" wire:model="GetChatInfo">
         <ul class="flex flex-row justify-between font-bold">
             <li class="text-green-600">@foreach($chat as $key){{ $key->name }}@endforeach</li>
-            <li class="text-green-600">{{ $users_count }}</li>
+            
             <li class="text-green-600"><a href="{{ route('teams.show', $chat_id) }}">Налаштування</a> </li>
         </ul>
     </nav>
@@ -37,9 +37,9 @@
         <form action="{{ route('SendMessage', $chat_id) }}" class="bg-white-200 flex flex-col md:flex-row" method="POST">
             @csrf
             <div class="relative">
-                <textarea type="text" placeholder="Send message... " cols=100 class="w-full bg-transparent border-b border-purple-500 py-2 px-3 outline-none" name="message" required></textarea>
+                <textarea type="text" placeholder="Написати повідомлення... " cols=100 class="w-full bg-transparent border-b border-purple-500 py-2 px-3 outline-none" name="message" required></textarea>
                 <div class="absolute right-0 bottom-0">
-                    <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded-l-none">Submit</button>
+                    <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded-l-none">Відправити</button>
                 </div>
             </div>
         </form>
