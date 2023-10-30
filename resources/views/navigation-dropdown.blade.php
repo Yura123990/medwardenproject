@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('home') }}" class="font-bold text-xl">{{ config('app.name', 'Laravel') }}</a>
+                    <a href="{{ route('home') }}" class="font-bold text-xl">{{ config('app.name', 'MedWarden') }}</a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     {{-- <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -14,7 +14,7 @@
                     <div class="relative inline-block mt-6">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
-                                <button class="flex items-center text-sm font-medium text-black-700 hover:text-gray-900 hover:border-gray-300 focus:outline-none focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out">
+                w                <button class="flex items-center text-sm font-medium text-black-700 hover:text-gray-900 hover:border-gray-300 focus:outline-none focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out">
                                     <div>{{ __('Діагностика') }}</div>
                     
                                     <div class="ml-1">
@@ -28,7 +28,7 @@
                                 <div class="block px-4 py-2 text-xs text-gray-700">
                                     {{ __('Виберіть категорію') }}
                                 </div>
-                                <x-jet-dropdown-link href="">
+                                <x-jet-dropdown-link href="{{ route('viral') }}">
                                     {{ __('Вірусні захворювання') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="#">
@@ -68,11 +68,11 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            {{ __('Управління акаунтом') }}
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Profile') }}
+                            {{ __('Мій профіль') }}
                         </x-jet-dropdown-link>
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -86,16 +86,16 @@
                         <!-- Team Management -->
                         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Team') }}
+                                {{ __('Оглянути чати') }}
                             </div>
                             
                             @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                 <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                    {{ __('Create New Team') }}
+                                    {{ __('Створити чат') }}
                                 </x-jet-dropdown-link>
 
                                 <x-jet-dropdown-link href="{{ route('searchTeam') }}">
-                                    {{ __('Search Team') }}
+                                    {{ __('Знайти чат') }}
                                 </x-jet-dropdown-link>
                             @endcan
 
@@ -109,7 +109,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Вийти') }}
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>

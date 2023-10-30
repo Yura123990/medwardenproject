@@ -3,8 +3,8 @@
 @section('content')
 @if(Auth::check())
     <ul class="flex flex-col">
-        <h1 class="font-semibold text-xl text-center my-3">Teams List</h1>
-        @livewire('chats-list' )
+        <h1 class="font-semibold text-xl text-center my-3">Список звернень</h1>
+        @livewire('chats-list')
     </ul>
       
 @else 

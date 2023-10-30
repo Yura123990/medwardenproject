@@ -9,6 +9,13 @@ module.exports = {
 
     theme: {
         extend: {
+            colors: {
+                'engviolet' : '#493548',
+                'ultraviolet' : '#4B4E6D',
+                'airforceblue' : '#6A8D92',
+                'cambridgeblue' : '80B192',
+                'lightgreen' : 'A1E887',
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
