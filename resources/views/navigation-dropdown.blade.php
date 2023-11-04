@@ -14,7 +14,7 @@
                     <div class="relative inline-block mt-6">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
-                                <button class="flex items-center text-sm font-medium text-black-700 hover:text-gray-900 hover:border-gray-300 focus:outline-none focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <button class="flex items-center text-sm font-medium text-black-700 hover:text-teal-900 hover:border-gray-300 focus:outline-none focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out">
                                     <div>{{ __('Діагностика') }}</div>
                     
                                     <div class="ml-1">
@@ -31,13 +31,54 @@
                                 <x-jet-dropdown-link href="{{ route('viral') }}">
                                     {{ __('Вірусні захворювання') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="#">
+                                <x-jet-dropdown-link href="{{ route('gastroenterological') }}">
                                     {{ __('Гастроентерологічні захворювання') }}
                                 </x-jet-dropdown-link>
                             </x-slot>
                         </x-jet-dropdown>
                     </div>
-                    <x-jet-nav-link href="{{ route('home') }}">
+                    <div class="relative inline-block mt-6">
+                        <x-jet-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="flex items-center text-sm font-medium text-black-700 hover:text-gray-900 hover:border-gray-300 focus:outline-none focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <div class="hover:text-gray-900 hover:border-gray-300">{{ __('Якість життя') }}</div>
+                    
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-4-4h8l-4 4z"/></svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+                    
+                            <x-slot name="content">
+                                <!-- Dropdown items -->
+                                <div class="block px-4 py-2 text-xs text-gray-700">
+                                    {{ __('Виберіть категорію') }}
+                                </div>
+                                <x-jet-dropdown-link href="{{ route('indexmassbody') }}">
+                                    {{ __('Індекс маси тіла') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('nicotin') }}">
+                                    {{ __('Оцінка нікотинової залежності') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('diabetes') }}">
+                                    {{ __('Оцінка ризику цукрового діабету') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('stress') }}">
+                                    {{ __('Рівень власного стресу та стресостійкості') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('psychoemotional') }}">
+                                    {{ __('Діагностика психоемоційної напруги') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('lifequality') }}">
+                                    {{ __('Діагностика психоемоційної напруги') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('psychoemotional') }}">
+                                    {{ __('Діагностика психоемоційної напруги') }}
+                                </x-jet-dropdown-link>
+                            </x-slot>
+                        </x-jet-dropdown>
+                    </div>
+                    <x-jet-nav-link class="text-black" href="{{ route('home') }}">
                         {{ __("Зв'язатися із лікарем") }}
                     </x-jet-nav-link>
             </div>
