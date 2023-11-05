@@ -70,10 +70,10 @@
                                     {{ __('Діагностика психоемоційної напруги') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{ route('lifequality') }}">
-                                    {{ __('Діагностика психоемоційної напруги') }}
+                                    {{ __('Визначення якості життя') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('psychoemotional') }}">
-                                    {{ __('Діагностика психоемоційної напруги') }}
+                                <x-jet-dropdown-link href="{{ route('depression') }}">
+                                    {{ __('Визначення важкості депресії') }}
                                 </x-jet-dropdown-link>
                             </x-slot>
                         </x-jet-dropdown>
