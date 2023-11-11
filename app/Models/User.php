@@ -9,6 +9,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -25,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role'
     ];
 
     /**
@@ -57,4 +58,30 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    protected static function boot()
+{
+    parent::boot();
+
+    static::created(function ($user) {
+        if ($user->role === 'doctor') {
+            // Create a record in the "doctors" table for the user
+            Doctor::create(['user_id' => $user->id]);
+        }
+    });
+
+    static::updated(function ($user) {
+        if ($user->isDirty('role') && $user->role === 'doctor') {
+            // Check if the role has changed to 'doctor' and create/update the "doctors" record
+            $doctor = Doctor::where('user_id', $user->id)->first();
+            if ($doctor) {
+                // Update the existing "doctors" record
+                $doctor->update(['user_id' => $user->id]);
+            } else {
+                // Create a new "doctors" record
+                Doctor::create(['user_id' => $user->id]);
+            }
+        }
+    });
+}
 }

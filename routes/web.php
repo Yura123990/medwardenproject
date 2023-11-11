@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/diagnostics/viral', function () {return view('diagnostics.viral');})->name('viral');
     Route::get('/diagnostics/gastroenterological', function () {return view('diagnostics.gastroenterological');})->name('gastroenterological');
+    Route::get('/diagnostics/cardiovascular', function () {return view('diagnostics.cardiovascular');})->name('cardiovascular');
 
     // levellife
     Route::get('/levellife/indexmassbody', 'App\Http\Controllers\levellife\IndexMassBodyController@index')->name('indexmassbody');
@@ -59,3 +60,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/teams', function() {
     return view('searchteam');
 })->name('searchTeam');
 Route::middleware(['auth:sanctum', 'verified'])->get('/teams/join/{id}', 'App\Http\Controllers\ChatController@JoinTeam')->name('joinTeam');
+
+//Doctor's cabinet
+Route::middleware('role:doctor')->group(function () {
+    Route::get('/doctorcabinet/viral', function () {return view('doctors.viral');})->name('d_viral');
+});
+
+//--admin-panel--
+// Route::middleware('role:admin')->group(function () {
+//     Route::get('/change-user-role', 'UserController@showChangeUserRoleForm')->name('change-user-role');
+//     Route::post('/change-user-role', 'UserController@updateUserRole')->name('update-user-role');
+// });
+Route::get('/change-user-role', 'App\Http\Controllers\UserController@showChangeUserRoleForm')->name('change-user-role');
+Route::post('/change-user-role', 'App\Http\Controllers\UserController@updateUserRole')->name('update-user-role');

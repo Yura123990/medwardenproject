@@ -34,6 +34,9 @@
                                 <x-jet-dropdown-link href="{{ route('gastroenterological') }}">
                                     {{ __('Гастроентерологічні захворювання') }}
                                 </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('cardiovascular') }}">
+                                    {{ __('Серцево-судинні захворювання') }}
+                                </x-jet-dropdown-link>
                             </x-slot>
                         </x-jet-dropdown>
                     </div>
@@ -81,6 +84,12 @@
                     <x-jet-nav-link class="text-black" href="{{ route('home') }}">
                         {{ __("Зв'язатися із лікарем") }}
                     </x-jet-nav-link>
+                    @if (auth()->user()->role === 'admin')<x-jet-nav-link class="text-black" href="{{ route('change-user-role') }}">
+                        {{ __("Панель адміна") }}
+                    </x-jet-nav-link>@endif
+                    @if (auth()->user()->role === 'admin' || auth()->user()->role === 'doctor')<x-jet-nav-link class="text-black" href="{{ route('d_viral') }}">
+                        {{ __("Кабінет лікаря") }}
+                    </x-jet-nav-link>@endif
             </div>
 
             <!-- Settings Dropdown -->

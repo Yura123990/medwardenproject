@@ -3,9 +3,6 @@
         <h2 class="font-semibold text-xl text-blue-800 leading-tight">
             {{ __('Анкета для визначення вірусного захворювання') }}
         </h2>
-        <h3 class="font-semibold text-lg text-blue-800 leading-tight">
-            {{ __('Анкета для визначення вірусного захворювання') }}
-        </h3>
     </x-slot>
     <form action="#" method="POST" class="py-4 ml-16 mr-16">
         @csrf
