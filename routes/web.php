@@ -63,7 +63,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/teams/join/{id}', 'App\Ht
 
 //Doctor's cabinet
 Route::middleware('role:doctor')->group(function () {
-    Route::get('/doctorcabinet/viral', function () {return view('doctors.viral');})->name('d_viral');
+    Route::get('/doctorcabinet/viral', 'App\Http\Controllers\doctors\DViralController@index')->name('d_viral');
+    Route::post('/doctorcabinet/viral', 'App\Http\Controllers\doctors\DViralController@processSymptoms');
 });
 
 //--admin-panel--
