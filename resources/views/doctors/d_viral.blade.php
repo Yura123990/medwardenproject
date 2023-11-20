@@ -4,6 +4,13 @@
             {{ __('Анкета для визначення вірусного захворювання') }}
         </h2>
     </x-slot>
+
+        @if (session('success'))
+            <div class="bg-green-200 text-green-800 border-l-4 border-green-600 p-4 mb-6">
+                {{ session('success') }}
+            </div>
+        @endif
+        
     <form action="{{ route('d_viral') }}" method="POST" class="py-4 ml-16 mr-16">
         @csrf
 
@@ -11,13 +18,13 @@
         <h3 class="font-semibold text-lg text-teal-800 leading-tight">
             {{ __('Виберіть хворобу для заповнення симптомами: ') }}
             <select name="sl1" class="bg-white hover:bg-slate-100 border p-2 text-orange-600 font-mono font-bold">
-                <option value="grvi">ГРВІ</option>
-                <option value="covid19">Covid_19</option>
-                <option value="hryp">Грип</option>
-                <option value="bronhit">Бронхіт</option>
-                <option value="ottyt">Оттит</option>
-                <option value="larynhit">Ларингіт</option>
-                <option value="anhina">Ангіна</option>
+                <option value="0">ГРВІ</option>
+                <option value="1">Covid_19</option>
+                <option value="2">Грип</option>
+                <option value="3">Бронхіт</option>
+                <option value="4">Оттит</option>
+                <option value="5">Ларингіт</option>
+                <option value="6">Ангіна</option>
             </select>
         </h3>
         </div>

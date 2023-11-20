@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DViralController extends Controller
 {
@@ -18,7 +19,9 @@ public function processSymptoms(Request $request)
 {
     $symptomsData = $request->except('_token');
 
-    $symptoms = array();
+    $illness = $request->input('sl1');
+
+    $symptoms = [];
 
     $userId = Auth::id();
     $doctorId = Doctor::where('user_id', $userId)->value('id');
@@ -27,14 +30,56 @@ public function processSymptoms(Request $request)
 
     for ($i = 1; $i <= 20; $i++) {
         $weight = $request->input("symptom{$i}_weight");
-        $intensity = $request->input("symptom{$i}_intensity");
+        $intensity = $request->input("symptom{$i}_intensity")/10;
 
         $characteristicFunction = $coefficient * $weight * $intensity;
-        array_push($symptoms, $characteristicFunction);
+        $symptoms["simp{$i}"] = $characteristicFunction;
     }
+    $viralData = ['doctor_id' => $doctorId, 'illness_id' => $illness] + $symptoms;
+    //DB::table('symp_viral_doctor')->insert($viralData);
+    //dd($viralData);
+    //dd($symptoms);
 
-    dd($symptoms);
+    $results = DB::table('symp_viral_doctor')
+            ->select('illness_id')
+            ->selectRaw('AVG(simp1) as avg_symptom1')
+            ->selectRaw('AVG(simp2) as avg_symptom2')
+            ->selectRaw('AVG(simp3) as avg_symptom3')
+            ->selectRaw('AVG(simp4) as avg_symptom4')
+            ->selectRaw('AVG(simp5) as avg_symptom5')
+            ->selectRaw('AVG(simp6) as avg_symptom6')
+            ->selectRaw('AVG(simp7) as avg_symptom7')
+            ->selectRaw('AVG(simp8) as avg_symptom8')
+            ->selectRaw('AVG(simp9) as avg_symptom9')
+            ->selectRaw('AVG(simp10) as avg_symptom10')
+            ->selectRaw('AVG(simp11) as avg_symptom11')
+            ->selectRaw('AVG(simp12) as avg_symptom12')
+            ->selectRaw('AVG(simp13) as avg_symptom13')
+            ->selectRaw('AVG(simp14) as avg_symptom14')
+            ->selectRaw('AVG(simp15) as avg_symptom15')
+            ->selectRaw('AVG(simp16) as avg_symptom16')
+            ->selectRaw('AVG(simp17) as avg_symptom17')
+            ->selectRaw('AVG(simp18) as avg_symptom18')
+            ->selectRaw('AVG(simp19) as avg_symptom19')
+            ->selectRaw('AVG(simp20) as avg_symptom20')
+            ->groupBy('illness_id')
+            ->get();
+            //dd($results);
 
-    return view('doctors.d_viral');
+    // return redirect()->route('d_viral')
+    //     ->with('success', 'Дані були успішно занесені у таблицю.');
+}
+
+private function calculateSymptomsAverage()
+{
+    $symptomsAvg = DB::table('viral')
+        ->select('id_simp', 'simp1', 'simp2', 'simp3', 'simp20')
+        ->groupBy('id_simp')
+        ->get();
+
+    foreach ($symptomsAvg as $avg) {
+        // Логіка вставки в іншу таблицю з середніми значеннями
+        // ...
+    }
 }
 }

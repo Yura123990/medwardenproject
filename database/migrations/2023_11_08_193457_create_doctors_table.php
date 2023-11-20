@@ -18,7 +18,7 @@ class CreateDoctorsTable extends Migration
             $table->unsignedBigInteger('user_id');
             // $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->float('expertise')->nullable();
+            $table->float('expertise')->default(0.80);
         });
     }
 
