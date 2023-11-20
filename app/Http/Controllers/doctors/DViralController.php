@@ -36,10 +36,16 @@ public function processSymptoms(Request $request)
         $symptoms["simp{$i}"] = $characteristicFunction;
     }
     $viralData = ['doctor_id' => $doctorId, 'illness_id' => $illness] + $symptoms;
-    //DB::table('symp_viral_doctor')->insert($viralData);
+    DB::table('symp_viral_doctor')->insert($viralData);
     //dd($viralData);
     //dd($symptoms);
-
+            //dd($results);
+    self::calculateSymptomsAverage();
+    return redirect()->route('d_viral')
+         ->with('success', 'Дані були успішно занесені у таблицю.');
+}
+public function calculateSymptomsAverage()
+{
     $results = DB::table('symp_viral_doctor')
             ->select('illness_id')
             ->selectRaw('AVG(simp1) as avg_symptom1')
@@ -64,22 +70,25 @@ public function processSymptoms(Request $request)
             ->selectRaw('AVG(simp20) as avg_symptom20')
             ->groupBy('illness_id')
             ->get();
-            //dd($results);
 
-    // return redirect()->route('d_viral')
-    //     ->with('success', 'Дані були успішно занесені у таблицю.');
+    
+            foreach ($results as $result) {
+                $illnessId = $result->illness_id;
+            
+                // Вибираємо всі стовпці, які починаються з "avg_symptom"
+                $avgSymptoms = (array)$result;
+                $avgSymptoms = array_filter($avgSymptoms, function ($key) {
+                    return strpos($key, 'avg_symptom') === 0;
+                }, ARRAY_FILTER_USE_KEY);
+            
+                // Створюємо асоціативний масив для використання в updateOrInsert
+                $data = array_merge(['illness_id' => $illnessId], $avgSymptoms);
+            
+                DB::table('symp_viral_characteristic')->updateOrInsert(
+                    ['illness_id' => $illnessId],
+                    $data
+                );
+            }
 }
 
-private function calculateSymptomsAverage()
-{
-    $symptomsAvg = DB::table('viral')
-        ->select('id_simp', 'simp1', 'simp2', 'simp3', 'simp20')
-        ->groupBy('id_simp')
-        ->get();
-
-    foreach ($symptomsAvg as $avg) {
-        // Логіка вставки в іншу таблицю з середніми значеннями
-        // ...
-    }
-}
 }
