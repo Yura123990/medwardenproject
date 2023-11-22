@@ -10,7 +10,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        
+
     <form action="{{ route('d_viral') }}" method="POST" class="py-4 ml-16 mr-16">
         @csrf
 
@@ -71,7 +71,7 @@
     
         <!-- Symptom 6 -->
         <div class="mb-4">
-            <label class="block font-semibold mb-2">Кон'юктивіт</label>
+            <label class="block font-semibold mb-2">Сльозотеча</label>
     
             <input type="number" name="symptom6_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
             <input type="number" name="symptom6_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
@@ -182,6 +182,27 @@
         </div>
 
         <!-- Symptom 20 -->
+        <div class="mb-4">
+            <label class="block font-semibold mb-2">Закреп</label>
+
+            <input type="number" name="symptom21_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
+            <input type="number" name="symptom21_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+        </div>
+
+        <div class="mb-4">
+            <label class="block font-semibold mb-2">Вушний біль</label>
+
+            <input type="number" name="symptom22_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
+            <input type="number" name="symptom22_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+        </div>
+
+        <div class="mb-4">
+            <label class="block font-semibold mb-2">Виснаження</label>
+
+            <input type="number" name="symptom23_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
+            <input type="number" name="symptom23_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+        </div>
+
         <div class="mb-4">
             <label class="block font-semibold mb-2">Біль у грудях</label>
 
