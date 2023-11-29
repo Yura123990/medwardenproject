@@ -5,8 +5,8 @@
         </div>
 
         <div class="sm:block">
-            <a href="{{ route('login') }}" class="text-base text-gray-700 hover:text-purple-700">Login</a>
-            <a href="{{ route('register') }}" class="ml-4 text-base text-gray-700 hover:text-purple-700">Register</a>
+            <a href="{{ route('login') }}" class="text-base text-gray-700 hover:text-purple-700">Увійти</a>
+            <a href="{{ route('register') }}" class="ml-4 text-base text-gray-700 hover:text-purple-700">Зареєструватись</a>
         </div>
     </div>
 </header>

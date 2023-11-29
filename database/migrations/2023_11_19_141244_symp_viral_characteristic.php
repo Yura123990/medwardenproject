@@ -16,8 +16,9 @@ class SympViralCharacteristic extends Migration
         Schema::dropIfExists('symp_viral_characteristic');
         Schema::create('symp_viral_characteristic', function (Blueprint $table) {
             $table->id();
-            $table->foreign('illness_id')->references('id')->on('illnesses');
+            $table->unsignedBigInteger('illness_id');
             $table->float('avg_symptom1');
+            $table->float('avg_symptom1_k');
             $table->float('avg_symptom2');
             $table->float('avg_symptom2_k');
             $table->float('avg_symptom3');

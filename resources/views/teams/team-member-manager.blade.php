@@ -6,23 +6,23 @@
         <div class="mt-10 sm:mt-0">
             <x-jet-form-section submit="addTeamMember">
                 <x-slot name="title">
-                    {{ __('Add Team Member') }}
+                    {{ __('Додати лікаря/пацієнта до чату') }}
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                    {{ __('Додайте лікаря до свого звернення, аби отримати консультацію.') }}
                 </x-slot>
 
                 <x-slot name="form">
                     <div class="col-span-6">
                         <div class="max-w-xl text-sm text-gray-600">
-                            {{ __('Please provide the email address of the person you would like to add to this team. The email address must be associated with an existing account.') }}
+                            {{ __('Будь ласка, додайте електронну адресу лікаря, від якого ви отримуватимете допомогу.') }}
                         </div>
                     </div>
 
                     <!-- Member Email -->
                     <div class="col-span-6 sm:col-span-4">
-                        <x-jet-label for="email" value="{{ __('Email') }}" />
+                        <x-jet-label for="email" value="{{ __('Електронна пошта') }}" />
                         <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
                         <x-jet-input-error for="email" class="mt-2" />
                     </div>
@@ -30,7 +30,7 @@
                     <!-- Role -->
                     @if (count($this->roles) > 0)
                         <div class="col-span-6 lg:col-span-4">
-                            <x-jet-label for="role" value="{{ __('Role') }}" />
+                            <x-jet-label for="role" value="{{ __('Роль') }}" />
                             <x-jet-input-error for="role" class="mt-2" />
 
                             <div class="mt-1 border border-gray-200 rounded-lg cursor-pointer">
@@ -63,11 +63,11 @@
 
                 <x-slot name="actions">
                     <x-jet-action-message class="mr-3" on="saved">
-                        {{ __('Added.') }}
+                        {{ __('Додано.') }}
                     </x-jet-action-message>
 
                     <x-jet-button>
-                        {{ __('Add') }}
+                        {{ __('Додати') }}
                     </x-jet-button>
                 </x-slot>
             </x-jet-form-section>
@@ -81,11 +81,11 @@
         <div class="mt-10 sm:mt-0">
             <x-jet-action-section>
                 <x-slot name="title">
-                    {{ __('Team Members') }}
+                    {{ __('Учасники чату') }}
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('All of the people that are part of this team.') }}
+                    {{ __('Усі користувачі, що є у вашому зверненні.') }}
                 </x-slot>
 
                 <!-- Team Member List -->
@@ -113,13 +113,13 @@
                                     <!-- Leave Team -->
                                     @if ($this->user->id === $user->id)
                                         <button class="cursor-pointer ml-6 text-sm text-red-500 focus:outline-none" wire:click="$toggle('confirmingLeavingTeam')">
-                                            {{ __('Leave') }}
+                                            {{ __('Покинути') }}
                                         </button>
 
                                     <!-- Remove Team Member -->
                                     @elseif (Gate::check('removeTeamMember', $team))
                                         <button class="cursor-pointer ml-6 text-sm text-red-500 focus:outline-none" wire:click="confirmTeamMemberRemoval('{{ $user->id }}')">
-                                            {{ __('Remove') }}
+                                            {{ __('Видалити') }}
                                         </button>
                                     @endif
                                 </div>
@@ -134,7 +134,7 @@
     <!-- Role Management Modal -->
     <x-jet-dialog-modal wire:model="currentlyManagingRole">
         <x-slot name="title">
-            {{ __('Manage Role') }}
+            {{ __('Керувати роллю') }}
         </x-slot>
 
         <x-slot name="content">
@@ -170,7 +170,7 @@
             </x-jet-secondary-button>
 
             <x-jet-button class="ml-2" wire:click="updateRole" wire:loading.attr="disabled">
-                {{ __('Save') }}
+                {{ __('Зберегти') }}
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
@@ -178,11 +178,11 @@
     <!-- Leave Team Confirmation Modal -->
     <x-jet-confirmation-modal wire:model="confirmingLeavingTeam">
         <x-slot name="title">
-            {{ __('Leave Team') }}
+            {{ __('Покинути чат') }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Are you sure you would like to leave this team?') }}
+            {{ __('Ви впевнені, що хочете покинути чат?') }}
         </x-slot>
 
         <x-slot name="footer">
@@ -199,11 +199,11 @@
     <!-- Remove Team Member Confirmation Modal -->
     <x-jet-confirmation-modal wire:model="confirmingTeamMemberRemoval">
         <x-slot name="title">
-            {{ __('Remove Team Member') }}
+            {{ __('Видалити користувача') }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Are you sure you would like to remove this person from the team?') }}
+            {{ __('Ви впевнені, що хочете видалити цю людину з обговорення?') }}
         </x-slot>
 
         <x-slot name="footer">
@@ -212,7 +212,7 @@
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ml-2" wire:click="removeTeamMember" wire:loading.attr="disabled">
-                {{ __('Remove') }}
+                {{ __('Видалити') }}
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>

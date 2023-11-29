@@ -19,7 +19,10 @@ Route::get('/', function () {
 
 // -- Questionairre --
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/diagnostics/viral', function () {return view('diagnostics.viral');})->name('viral');
+    // diagnostics
+    Route::get('/diagnostics/viral', 'App\Http\Controllers\users\UViralController@index')->name('viral');
+    Route::post('/diagnostics/viral', 'App\Http\Controllers\users\UViralController@defineIllness');
+
     Route::get('/diagnostics/gastroenterological', function () {return view('diagnostics.gastroenterological');})->name('gastroenterological');
     Route::get('/diagnostics/cardiovascular', function () {return view('diagnostics.cardiovascular');})->name('cardiovascular');
 

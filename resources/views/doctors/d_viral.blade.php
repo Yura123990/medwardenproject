@@ -18,13 +18,13 @@
         <h3 class="font-semibold text-lg text-teal-800 leading-tight">
             {{ __('Виберіть хворобу для заповнення симптомами: ') }}
             <select name="sl1" class="bg-white hover:bg-slate-100 border p-2 text-orange-600 font-mono font-bold">
-                <option value="0">ГРВІ</option>
-                <option value="1">Covid_19</option>
-                <option value="2">Грип</option>
-                <option value="3">Бронхіт</option>
-                <option value="4">Оттит</option>
-                <option value="5">Ларингіт</option>
-                <option value="6">Ангіна</option>
+                <option value="1">ГРВІ</option>
+                <option value="2">Covid_19</option>
+                <option value="3">Грип</option>
+                <option value="4">Бронхіт</option>
+                <option value="5">Отит</option>
+                <option value="6">Ларингіт</option>
+                <option value="7">Ангіна</option>
             </select>
         </h3>
         </div>

@@ -17,7 +17,7 @@ class CreateIllnessesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
         });
     }
 

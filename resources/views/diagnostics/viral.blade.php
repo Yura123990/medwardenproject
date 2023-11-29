@@ -3,10 +3,14 @@
         <h2 class="font-semibold text-xl text-blue-800 leading-tight">
             {{ __('Анкета для визначення вірусного захворювання') }}
         </h2>
-        <h3 class="font-semibold text-lg text-blue-800 leading-tight">
-            {{ __('Анкета для визначення вірусного захворювання') }}
-        </h3>
     </x-slot>
+
+        @if (session('success'))
+            <div class="bg-green-200 text-green-800 border-l-4 border-green-600 p-4 mb-6">
+                {{ session('success') }}
+            </div>
+        @endif
+    
     <form action="#" method="POST" class="py-4 ml-16 mr-16">
         @csrf
 
