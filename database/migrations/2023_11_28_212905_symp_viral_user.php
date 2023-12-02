@@ -16,7 +16,8 @@ class SympViralUser extends Migration
         Schema::dropIfExists('symp_viral_user');
         Schema::create('symp_viral_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('illness_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamp('created_at')->useCurrent();
             $table->float('simp1');
             $table->float('simp2');

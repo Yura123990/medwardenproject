@@ -21,7 +21,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // diagnostics
     Route::get('/diagnostics/viral', 'App\Http\Controllers\users\UViralController@index')->name('viral');
-    Route::post('/diagnostics/viral', 'App\Http\Controllers\users\UViralController@defineIllness');
+    Route::post('/diagnostics/viral', 'App\Http\Controllers\users\UViralController@processSymptoms');
+    Route::get('/viral-record', 'App\Http\Controllers\users\ViralRecordController@index')->name('viral-record');
 
     Route::get('/diagnostics/gastroenterological', function () {return view('diagnostics.gastroenterological');})->name('gastroenterological');
     Route::get('/diagnostics/cardiovascular', function () {return view('diagnostics.cardiovascular');})->name('cardiovascular');
@@ -71,9 +72,7 @@ Route::middleware('role:doctor')->group(function () {
 });
 
 //--admin-panel--
-// Route::middleware('role:admin')->group(function () {
-//     Route::get('/change-user-role', 'UserController@showChangeUserRoleForm')->name('change-user-role');
-//     Route::post('/change-user-role', 'UserController@updateUserRole')->name('update-user-role');
-// });
-Route::get('/change-user-role', 'App\Http\Controllers\UserController@showChangeUserRoleForm')->name('change-user-role');
-Route::post('/change-user-role', 'App\Http\Controllers\UserController@updateUserRole')->name('update-user-role');
+Route::middleware('role:admin')->group(function () {
+    Route::get('/change-user-role', 'UserController@showChangeUserRoleForm')->name('change-user-role');
+    Route::post('/change-user-role', 'UserController@updateUserRole')->name('update-user-role');
+});
