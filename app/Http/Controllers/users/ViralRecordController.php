@@ -20,7 +20,7 @@ class ViralRecordController extends Controller
             "Кашель",
             "Сильний біль у тілі",
             "Головний біль",
-            "Кон'юнктивіт",
+            "Сльозотеча",
             "Збільшення лімфовузлів",
             "Слабкість у тілі",
             "Блювання",
@@ -35,7 +35,10 @@ class ViralRecordController extends Controller
             "Втрата орієнтації в просторі",
             "Біль у м'язах і суглобах",
             "Біль у грудях",
-        ];
+            "Закреп",
+            "Вушний біль",
+            "Виснаження",
+        ];        
 
         return view('records.viral-record', compact(['userSymptoms', 'symptoms']));
     }
