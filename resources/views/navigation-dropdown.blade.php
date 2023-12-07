@@ -184,6 +184,14 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('home')">
                 {{ __('Мої звернення') }}
             </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('viral') }}" :active="request()->routeIs('home')">
+                {{ __('Діагностика') }}
+            </x-jet-responsive-nav-link>
+
+            @if (auth()->user()->role === 'admin' || auth()->user()->role === 'doctor')<x-jet-responsive-nav-link href="{{ route('d_viral') }}">
+                {{ __("Кабінет лікаря") }}
+            </x-jet-responsive-nav-link>@endif
         </div>
 
         <!-- Responsive Settings Options -->

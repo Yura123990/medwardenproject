@@ -3,6 +3,9 @@
         <h2 class="font-semibold text-xl text-blue-800 leading-tight">
             {{ __('Анкета для визначення вірусного захворювання') }}
         </h2>
+        <h3 class="font-mono text-xs text-blue-800 leading-tight">
+            {{ __("1. Виберіть хворобу для заповнення даними.\n 2. Для кожного симптома при цій хворобі введіть:\n 1) Вагу(важкість) симптома, 0-5, де 0 - немає, 5 - дуже важкий \n 2) Типовість(коефіцієнт) симптома, 0-10, де 0 - зовсім не типовий, 10 - повністю типовий") }}
+        </h3>
     </x-slot>
 
         @if (session('success'))
@@ -33,181 +36,181 @@
         <div class="mb-4">
             <label class="block font-semibold mb-2">Нежить</label>
     
-            <input type="number" name="symptom1_weight" class="bg-white hover:bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom1_intensity" class="bg-white hover:bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom1_weight" class="bg-white hover:bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom1_intensity" class="bg-white hover:bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 2 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Лихоманка</label>
     
-            <input type="number" name="symptom2_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom2_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom2_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom2_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 3 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Кашель</label>
     
-            <input type="number" name="symptom3_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom3_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom3_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom3_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 4 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Сильний біль у тілі</label>
     
-            <input type="number" name="symptom4_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom4_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom4_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom4_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 5 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Головний біль</label>
     
-            <input type="number" name="symptom5_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom5_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom5_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom5_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 6 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Сльозотеча</label>
     
-            <input type="number" name="symptom6_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom6_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom6_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom6_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 7 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Збільшення лімфовузлів</label>
     
-            <input type="number" name="symptom7_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom7_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom7_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom7_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 8 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Слабкість у тілі</label>
     
-            <input type="number" name="symptom8_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom8_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom8_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom8_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 9 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Блювання</label>
     
-            <input type="number" name="symptom9_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom9_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom9_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom9_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 10 -->
         <div class="mb-4">
-            <label class="block font-semibold mb-2">Ангіна</label>
+            <label class="block font-semibold mb-2">Біль в горлі</label>
     
-            <input type="number" name="symptom10_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom10_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom10_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom10_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
     
         <!-- Symptom 11 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Втрата апетиту</label>
 
-            <input type="number" name="symptom11_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom11_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom11_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom11_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 12 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Чхання</label>
 
-            <input type="number" name="symptom12_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom12_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom12_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom12_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 13 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Висока температура</label>
 
-            <input type="number" name="symptom13_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom13_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom13_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom13_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 14 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Діарея</label>
 
-            <input type="number" name="symptom14_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom14_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom14_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom14_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 15 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Біль у животі</label>
 
-            <input type="number" name="symptom15_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom15_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom15_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom15_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 16 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Втрата нюху</label>
 
-            <input type="number" name="symptom16_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom16_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom16_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom16_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 17 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Втрата смаку</label>
 
-            <input type="number" name="symptom17_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom17_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom17_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom17_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 18 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Втрата орієнтації в просторі</label>
 
-            <input type="number" name="symptom18_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom18_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom18_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom18_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 19 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Біль у м'язах і суглобах</label>
 
-            <input type="number" name="symptom19_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom19_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom19_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom19_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <div class="mb-4">
             <label class="block font-semibold mb-2">Біль у грудях</label>
 
-            <input type="number" name="symptom20_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom20_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom20_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom20_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <!-- Symptom 20 -->
         <div class="mb-4">
             <label class="block font-semibold mb-2">Закреп</label>
 
-            <input type="number" name="symptom21_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom21_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom21_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom21_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <div class="mb-4">
             <label class="block font-semibold mb-2">Вушний біль</label>
 
-            <input type="number" name="symptom22_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom22_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom22_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom22_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <div class="mb-4">
             <label class="block font-semibold mb-2">Виснаження</label>
 
-            <input type="number" name="symptom23_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" value="0">
-            <input type="number" name="symptom23_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" value="0">
+            <input type="number" name="symptom23_weight" class="bg-white hover-bg-slate-100 border p-2 w-20" placeholder="Вага" min="0" max="5" >
+            <input type="number" name="symptom23_intensity" class="bg-white hover-bg-slate-100 border p-2 w-28" placeholder="Типовість" min="0" max="10" >
         </div>
 
         <button type="submit" name="sb" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-green-700">

@@ -30,7 +30,10 @@ public function processSymptoms(Request $request)
 
     for ($i = 1; $i <= 23; $i++) {
         $weight = $request->input("symptom{$i}_weight");
+        if($weight == null) $weight = 0;
+
         $intensity = $request->input("symptom{$i}_intensity")/10;
+        if($intensity == null) $intensity = 0;
 
         $characteristicFunction = $coefficient * $weight * $intensity;
         $symptoms["simp{$i}"] = $characteristicFunction;

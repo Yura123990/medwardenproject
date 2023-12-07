@@ -73,6 +73,6 @@ Route::middleware('role:doctor')->group(function () {
 
 //--admin-panel--
 Route::middleware('role:admin')->group(function () {
-    Route::get('/change-user-role', 'UserController@showChangeUserRoleForm')->name('change-user-role');
-    Route::post('/change-user-role', 'UserController@updateUserRole')->name('update-user-role');
+    Route::get('/change-user-role', 'App\Http\Controllers\UserController@showChangeUserRoleForm')->name('change-user-role');
+    Route::post('/change-user-role', 'App\Http\Controllers\UserController@updateUserRole')->name('update-user-role');
 });
