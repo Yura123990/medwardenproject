@@ -38,7 +38,7 @@
             @csrf
             <div class="relative">
                 <textarea type="text" placeholder="Написати повідомлення... " cols=100 class="w-full bg-transparent border-b border-purple-500 py-2 px-3 outline-none" name="message" required></textarea>
-                <div class="absolute right-0 bottom-0">
+                <div>
                     <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded-l-none">Відправити</button>
                 </div>
             </div>
