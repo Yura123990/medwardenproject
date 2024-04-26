@@ -2,10 +2,20 @@
 
 @section('content')
 @if(Auth::check())
+    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
     <ul class="flex flex-col">
         <h1 class="font-semibold text-xl text-center my-3">Список звернень</h1>
         @livewire('chats-list')
     </ul>
+    @endif
+    <div class="w-auto bg-green-100 px-10 py-10">
+    <h2 class="font-bold font-mono text-5xl text-blue-800 leading-tigh px-0">
+        {{ __('Вас вітає MedWarden! Виберіть те, що бажаєте зробити у меню вище') }}
+    </h2>
+    <p class="mt-2 py-6 w-full sm:w-1/2 ml-auto pl-2 border-l-double border-red-700 border-l-8 rounded-sm text-justify text-lg text-slate-700">
+        “MedWarden” – це зручний інструмент, призначення якого виявляти проблеми зі здоров’ям у пацієнтів. У сервісі передбачено дві можливості – пацієнт може самостійно пройти тест для визначення діагнозу, або зв’язатися із медичним експертом, який поставить попередній діагноз.
+    </p>
+    </div>
       
 @else 
 <div class="w-full my-8 bg-blue-900 p-4">

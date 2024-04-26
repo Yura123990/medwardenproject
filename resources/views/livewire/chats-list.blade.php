@@ -1,3 +1,4 @@
+@if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
 <div class="display-flex">
     @foreach ($allTeams as $team)
         <li class="text-gray-900 select-none relative py-2 pl-3 pr-9 rounded-md transition duration-200 bg-green-200 hover:bg-purple-400 mb-2">
@@ -10,3 +11,4 @@
         </li> 
     @endforeach
 </div>
+@endif
