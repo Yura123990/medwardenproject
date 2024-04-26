@@ -24,8 +24,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/diagnostics/viral', 'App\Http\Controllers\users\UViralController@processSymptoms');
     Route::get('/viral-record', 'App\Http\Controllers\users\ViralRecordController@index')->name('viral-record');
 
+    Route::get('/diagnostics/cardiovascular', 'App\Http\Controllers\users\UCardioVascularController@index')->name('cardiovascular');
+    Route::post('/diagnostics/cardiovascular', 'App\Http\Controllers\users\UCardioVascularController@processSymptoms');
+    Route::get('/cardio-record', 'App\Http\Controllers\users\CardioVascularRecordController@index')->name('cardio-record');
+
     Route::get('/diagnostics/gastroenterological', function () {return view('diagnostics.gastroenterological');})->name('gastroenterological');
-    Route::get('/diagnostics/cardiovascular', function () {return view('diagnostics.cardiovascular');})->name('cardiovascular');
 
     // levellife
     Route::get('/levellife/indexmassbody', 'App\Http\Controllers\levellife\IndexMassBodyController@index')->name('indexmassbody');
@@ -69,6 +72,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/teams/join/{id}', 'App\Ht
 Route::middleware('role:doctor')->group(function () {
     Route::get('/doctorcabinet/viral', 'App\Http\Controllers\doctors\DViralController@index')->name('d_viral');
     Route::post('/doctorcabinet/viral', 'App\Http\Controllers\doctors\DViralController@processSymptoms');
+
+    Route::get('/doctorcabinet/cardiovascular', 'App\Http\Controllers\doctors\DCardioVascularController@index')->name('d_cardio');
+    Route::post('/doctorcabinet/cardiovascular', 'App\Http\Controllers\doctors\DCardioVascularController@processSymptoms');
 });
 
 //--admin-panel--

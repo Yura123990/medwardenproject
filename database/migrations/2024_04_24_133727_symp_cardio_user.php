@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SympViralUser extends Migration
+class SympCardioUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class SympViralUser extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('symp_viral_user');
-        Schema::create('symp_viral_user', function (Blueprint $table) {
+        Schema::dropIfExists('symp_cardio_user');
+        Schema::create('symp_cardio_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
@@ -37,11 +37,6 @@ class SympViralUser extends Migration
             $table->float('simp16');
             $table->float('simp17');
             $table->float('simp18');
-            $table->float('simp19');
-            $table->float('simp20');
-            $table->float('simp21');
-            $table->float('simp22');
-            $table->float('simp23');
         });
     }
 
@@ -52,6 +47,6 @@ class SympViralUser extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('symp_viral_user');
+        Schema::dropIfExists('symp_cardio_user');
     }
 }

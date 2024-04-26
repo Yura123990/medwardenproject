@@ -132,6 +132,17 @@
                         @endif
 
                         <div class="border-t border-gray-100"></div>
+                        <div class="block px-4 py-2 text-xs text-gray-400">
+                            {{ __('Історія діагностики') }}
+                        </div>
+                        <x-jet-dropdown-link href="{{ route('viral-record') }}">
+                            {{ __('Записи вірусних захворювань') }}
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('cardio-record') }}">
+                            {{ __('Записи серцево-судинних захворювань') }}
+                        </x-jet-dropdown-link>
+
+                        <div class="border-t border-gray-100"></div>
 
                         <!-- Team Management -->
                         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -185,13 +196,53 @@
                 {{ __('Мої звернення') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="{{ route('viral') }}" :active="request()->routeIs('home')">
+            <x-jet-responsive-nav-link href="{{ route('viral') }}" :active="request()->routeIs('viral')">
                 {{ __('Діагностика') }}
             </x-jet-responsive-nav-link>
 
             @if (auth()->user()->role === 'admin' || auth()->user()->role === 'doctor')<x-jet-responsive-nav-link href="{{ route('d_viral') }}">
                 {{ __("Кабінет лікаря") }}
             </x-jet-responsive-nav-link>@endif
+
+            <div class="relative inline-block mt-6 hover:bg-gray-100">
+                <x-jet-dropdown>
+                    <x-slot name="trigger">
+                        <button class=" font-b px-4 focus:outline-none transition duration-150 ease-in-out">
+                            <div class="inline-block pt-2 pb-3 space-y-1 text-gray-600">{{ __('Якість життя') }}
+                                <svg class="inline-block fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-4-4h8l-4 4z"/></svg>
+                            </div>
+                        </button>
+                    </x-slot>
+            
+                    <x-slot name="content">
+                        <!-- Dropdown items -->
+                        <div class="block px-4 py-2 text-xs text-gray-700">
+                            {{ __('Виберіть категорію') }}
+                        </div>
+                        <x-jet-dropdown-link href="{{ route('indexmassbody') }}">
+                            {{ __('Індекс маси тіла') }}
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('nicotin') }}">
+                            {{ __('Оцінка нікотинової залежності') }}
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('diabetes') }}">
+                            {{ __('Оцінка ризику цукрового діабету') }}
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('stress') }}">
+                            {{ __('Рівень власного стресу та стресостійкості') }}
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('psychoemotional') }}">
+                            {{ __('Діагностика психоемоційної напруги') }}
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('lifequality') }}">
+                            {{ __('Визначення якості життя') }}
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('depression') }}">
+                            {{ __('Визначення важкості депресії') }}
+                        </x-jet-dropdown-link>
+                    </x-slot>
+                </x-jet-dropdown>
+            </div>
         </div>
 
         <!-- Responsive Settings Options -->
